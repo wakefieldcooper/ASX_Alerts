@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Stock Insights</title>>
+    <style>
+        h1{
+            color: #22cbcf
+            text-align: center;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Articles mentioning your tracked stocks</h1><br/>
+    {% set_count = namespace(i=0) %}
+    {% for symbol  in symbols %}
+    <h2>{{symbol}} - {{comanpanyName[count.i]}} - {{exchange[count.i]}}</h2>
+    <p>{{summary[count.i]}}<br/><br/>
+        Link: <a href="{{articles[count.i]}}" target="_blank">
+                {{companyName[count.i]}}
+            </a>
+    </p>
+        {% set count.i = count.i + 1 %}
+    {% endfor %}
+</body>
+</html>
